@@ -1,16 +1,17 @@
+<p align="center">
+  <img src="./meteor-header.svg" alt="Alexsander Vilas Boas - meteor header" width="100%"/>
+</p>
+
 ## Hi there 👋
 
 <!--
 **acvb-Alexsander/acvb-Alexsander** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
 -->
+
+- 🔭 I currently work at **Stefanini Group**, assigned to **BB Technology**, developing full-stack enterprise applications.
+- 💻 Main stack: **Angular · TypeScript · Java · Quarkus · React · Next.js · PostgreSQL · REST APIs · Azure**
+- 🌱 I work with microservices architecture, RESTful API integration, and PostgreSQL data modeling.
+- 🤝 Open to CLT opportunities in Brazil and remote international roles.
+- 📫 Contact: acvb.dev@gmail.com
+- 🔗 LinkedIn: [linkedin.com/in/acvbdeveloper](https://www.linkedin.com/in/acvbdeveloper)
+- 📍 Brasília, DF, Brasil
