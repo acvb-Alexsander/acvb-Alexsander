@@ -16,7 +16,6 @@
 - 🔗 LinkedIn: [linkedin.com/in/acvbdeveloper](https://www.linkedin.com/in/acvbdeveloper)
 - 📍 Brasília, DF, Brasil
 
-### 💻 Most frequent programming languages
 
 ### 💻 Most frequent programming languages
 
