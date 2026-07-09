@@ -18,28 +18,27 @@ jobs:
       - name: Create assets folder
         run: mkdir -p assets
 
-      - name: Download GitHub stats SVGs
-        run: |
-          set -e
+      - name: Generate GitHub stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=acvb-Alexsander&show_icons=true&theme=tokyonight&hide_border=true
+          path: assets/github-stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-          echo "Baixando top-langs.svg..."
-          curl -fLsS "https://github-readme-stats.vercel.app/api/top-langs/?username=acvb-Alexsander&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" \
-            -o assets/top-langs.svg
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=acvb-Alexsander&layout=compact&theme=tokyonight&hide_border=true&langs_count=8
+          path: assets/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-          echo "Baixando github-stats.svg..."
-          curl -fLsS "https://github-readme-stats.vercel.app/api?username=acvb-Alexsander&show_icons=true&theme=tokyonight&hide_border=true" \
-            -o assets/github-stats.svg
-
-      - name: Validate downloaded SVGs
+      - name: Validate generated SVGs
         run: |
           for file in assets/top-langs.svg assets/github-stats.svg; do
-            if [ ! -s "$file" ]; then
-              echo "ERRO: $file está vazio ou não foi criado."
-              exit 1
-            fi
-            if ! grep -q "<svg" "$file"; then
-              echo "ERRO: $file não contém um SVG válido (provável rate limit ou erro da API)."
-              cat "$file"
+            if [ ! -s "$file" ] || ! grep -q "<svg" "$file"; then
+              echo "ERRO: $file não foi gerado corretamente."
               exit 1
             fi
             echo "$file OK ($(wc -c < "$file") bytes)"
@@ -50,11 +49,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/*.svg
-
           if git diff --cached --quiet; then
             echo "Nenhuma mudança para commitar."
             exit 0
           fi
-
           git commit -m "Update GitHub stats cards"
           git push
